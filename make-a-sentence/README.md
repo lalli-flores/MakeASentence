@@ -36,5 +36,6 @@ Implementatation Details:
 Error Handling Scenario: Error Handling Scenario![image](https://user-images.githubusercontent.com/60489850/114287340-efec4c80-9a1a-11eb-8aba-430ff3474336.png)
 Succesful Data Fetch![image](https://user-images.githubusercontent.com/60489850/114287263-8d934c00-9a1a-11eb-976b-950204211b80.png)
 Loading Data Scenario: Loading Data![image](https://user-images.githubusercontent.com/60489850/114287301-9edc5880-9a1a-11eb-8053-a7950bc9c69e.png)
+Unsuccessful Data Fetch scenario:Screen Shot 2021-04-10 at 4.38.09 PM![image](https://user-images.githubusercontent.com/60489850/114287384-4194d700-9a1b-11eb-811a-642f197c28ce.png)
 
 
