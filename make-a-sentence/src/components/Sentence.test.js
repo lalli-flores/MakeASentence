@@ -1,10 +1,9 @@
 import { render, fireEvent, cleanup } from '@testing-library/react';
-import SentenceForm from './components/SentenceForm';
+import SentenceForm from './SentenceForm';
 import '@testing-library/jest-dom/extend-expect';
 import axiosMock from "axios";
 
 axiosMock.get = jest.fn()
-
 
 describe('SentenceForm', () => {
     afterEach(cleanup);

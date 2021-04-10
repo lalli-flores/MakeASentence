@@ -20,6 +20,8 @@ Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
+Implementatation Details:
+
 1. Form Validation: Form validation is in place to ensure mandatory fields are filled in and only alphabets are allowed   
    for subject,verb and object fields before actually making an api call. This avoid unnecessary api calls unless valid param info is available
 2. Error Handling: Application provides a way to gracefully handle errors by maintaining the state: State contains  
@@ -27,5 +29,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
         Waiting for data : loading is true and a spinner is displayed
         Data Fetch successful: set the response and display the success message in green color
         Data Fetch failed: Display an error message to let the user know about the failure
-3. 
+3. Material UI: Used material ui to provide better user experience.
+4. Used axios as it provides a secure way for making http request to the api and is lightweight and easy to customize  
+5. Used Jest, axiosMock and react testing library for unit testing.
+
 
