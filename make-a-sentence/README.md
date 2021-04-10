@@ -33,4 +33,3 @@ Implementatation Details:
 4. Used axios as it provides a secure way for making http request to the api and is lightweight and easy to customize  
 5. Used Jest, axiosMock and react testing library for unit testing.
 
-
