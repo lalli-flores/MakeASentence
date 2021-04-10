@@ -33,3 +33,8 @@ Implementatation Details:
 4. Used axios as it provides a secure way for making http request to the api and is lightweight and easy to customize  
 5. Used Jest, axiosMock and react testing library for unit testing.
 
+Error Handling Scenario: Error Handling Scenario![image](https://user-images.githubusercontent.com/60489850/114287340-efec4c80-9a1a-11eb-8aba-430ff3474336.png)
+Succesful Data Fetch![image](https://user-images.githubusercontent.com/60489850/114287263-8d934c00-9a1a-11eb-976b-950204211b80.png)
+Loading Data Scenario: Loading Data![image](https://user-images.githubusercontent.com/60489850/114287301-9edc5880-9a1a-11eb-8053-a7950bc9c69e.png)
+
+
