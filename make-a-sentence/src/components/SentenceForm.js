@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+
+// Material UI components have been used to provide a better user experience.
 import {
   Select,
   MenuItem,
@@ -17,6 +19,7 @@ import {
   CircularProgress
 } from "@material-ui/core";
 
+// Using using makeStyles for styling the components and providing common classes for easier maintanability
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
@@ -35,8 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /* 
-What:  UI with the following input elements:
-/*
+ UI with the following input elements:
     1. Sentence Type: yesno, whatobj, whosubj : Indicates what type of a sentence is it, default is declarative statement
     2. Subject - Noun : Required 
     3. Object - Noun : Required input
@@ -46,42 +48,48 @@ What:  UI with the following input elements:
  */
 /* API: https://lt-nlgservice.herokuapp.com/rest/english/realise?[PARAMS]*/
   
-
-
 function SentenceForm() {
   const classes = useStyles();
+  /*
+  State contains information about the data fetch
+  Waiting for data : loading is true and a spinner is displayed
+  Data Fetch successful: set the response and display the success message in green color
+  Data Fetch failed: Display an error message to let the user know about the failure
+  */ 
   const [state, setstate] = useState({
     data:"",
     loading: false,
     error: ""
   })
+
+  // Using useState hook for the params subject,object,verb, tense and sentenceType
+
   const [subject, setSubject] = useState("");
   const [object, setObject] = useState("");
   const [verb, setVerb] = useState("");
   const [tense, setTense] = useState("Present");
   const [sentenceType, setSentenceType] = useState("declarative");
+  const tenses = ["Present", "Past", "Future"]; // List of possibile menu options for verb tense
   
+// Error Handling: In case of any validation errors, display the error mesage: 
+// validations includes, empty required fields, entering any other data in the input fields other than strings.
 
   const [objectErr, setObjectErr] = React.useState("");
   const [subjectErr, setSubjectErr] = React.useState("");
   const [verbErr, setVerbErr] = React.useState("");
-  const tenses = ["Present", "Past", "Future"];
 
   // optional params considered:
   const [objNum, setObjNum] = useState("singular");
-
   const [subjNum, setSubjNum] = useState("singular");
-
-  //subjnum
-
-  const [objDet, setObjDet] = useState("a");
+  const [objDet, setObjDet] = useState("a"); // By default singular will have "a" and when the plural option is selected, params will be passed with "the"
   const [subjDet, setSubjDet] = useState("a");
 
-
+  // Base url for Linguatools Sentence Generating API, params are dynamically added based on the change events to input params in the form
   const baseUrl = `https://lt-nlgservice.herokuapp.com/rest/english/realise?subject=${subject}&verb=${verb}&object=${object}&tense=${tense.toLocaleLowerCase()}&objnum=${objNum}&subjnum=${subjNum}&objdet=${objDet}&subjdet=${subjDet}&sentencetype=${sentenceType}&progressive=progressive`;
   const isValidationFailed = () => {
     let hasError = false;
-    const regex =  /^[a-zA-Z][a-zA-Z \\s]+$/;
+
+    const regex =  /^[a-zA-Z][a-zA-Z \\s]+$/; // Allowing only alphabtes and spaces for the input text fields
 
     if (!subject || !regex.test(subject)) {
       setSubjectErr("Please enter valid Subject");
@@ -113,8 +121,12 @@ function SentenceForm() {
     return hasError;
   }
 
+// Handling the form submit to fetch the data from the api
+
   const handleSubmit = (evt) => {
     evt.preventDefault();   
+
+    // If the validation is successful and there are no validation error, then make the api call
     if (!isValidationFailed()) {
       setstate({
         data: "",
@@ -126,15 +138,19 @@ function SentenceForm() {
         .get(baseUrl)
         .then((response) => {
           console.log("Response is ", response);
-          if (response.data.result === "OK")
-            setstate({
-              data: response.data.sentence,
-              loading: false,
-              error: ""
-            });
+          if (response.data.result === "OK") {
+              // Data fetch is successful, so set the loading indicator to false and display the sentence fetched
+                setstate({
+                data: response.data.sentence,
+                loading: false,
+                error: ""
+                });
+            }
         })
         .catch((err) => {
           console.log("Errored out with ", err);
+            // Data fetch errored out, so set the error message to inform the user about the failure
+
           setstate({
             data:"",
             loading: false,
@@ -146,11 +162,12 @@ function SentenceForm() {
 
   return (
     <div data-testid="form">
-      <Typography variant="h6" component="h2" className={classes.root}>
+      <Typography variant="h6" component="h2" className={classes.root}
+      data-testid="sentenceResult">
 
       {state.loading && <CircularProgress size={20}/>}
-      {state.data && <label style={{ color: 'green', fontSize:17 }}> Final Sentence: {state.data}</label>}
-      {state.error && <label style={{ color: 'red', fontSize:17 }}>{state.error}</label>}
+      {state.data && <label data-testid="success" style={{ color: 'green', fontSize:17 }}> Final Sentence: {state.data}</label>}
+      {state.error && <label data-testid="error"  style={{ color: 'red', fontSize:17 }}>{state.error}</label>}
       </Typography>
 
       <form className={classes.root} noValidate id="sentenceForm">
@@ -158,6 +175,8 @@ function SentenceForm() {
           <Grid container alignItems="flex-start" spacing={2}>
             <Grid item xl={12}>
               <FormControl className={classes.eltSpacing}>
+                  {/* Subject: A subject is a part of a sentence that contains the 
+                  person or thing performing the action (or verb) in a sentence. */}
                 <TextField               
                   name="subject"
                   variant="outlined"
@@ -172,31 +191,16 @@ function SentenceForm() {
                   helperText={subjectErr}
                   error={!!subjectErr}
                   onChange={(e) => setSubject(e.target.value)}
+                  inputProps={{
+                    'data-testid': 'subjectInput'
+                  }}
                 ></TextField>
               </FormControl>
             </Grid>
             <Grid item xl={12}>
               <FormControl className={classes.eltSpacing}>
+                 {/* Verb: A verb is the action or state of being in a sentence. */}
                 <TextField
-                data-testid="filter-input-object"
-                  variant="outlined"
-                  margin="normal"
-                  type="text"
-                  fullWidth
-                  required
-                  label="Object"
-                  placeholder="Enter Object"
-                  helperText={objectErr}
-                  error={!!objectErr}
-                  onChange={(e) => setObject(e.target.value)}
-                ></TextField>
-              </FormControl>
-            </Grid>
-            <Grid item xl={12}>
-              <FormControl className={classes.eltSpacing}>
-                <TextField
-                                 data-testid="filter-input-verb"
-
                   variant="outlined"
                   margin="normal"
                   type="text"
@@ -207,18 +211,44 @@ function SentenceForm() {
                   placeholder="Enter Verb"
                   error={!!verbErr}
                   onChange={(e) => setVerb(e.target.value)}
+                  inputProps={{
+                    'data-testid': 'verbInput'
+                  }}
                 ></TextField>
               </FormControl>
             </Grid>
+            <Grid item xl={12}>
+              <FormControl className={classes.eltSpacing}>
+                   {/* Object: The object of a sentence is the person or thing that receives the action of the verb. 
+                    It is the who or what that the subject does something to */}
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  type="text"
+                  fullWidth
+                  required
+                  label="Object"
+                  placeholder="Enter Object"
+                  helperText={objectErr}
+                  error={!!objectErr}
+                  onChange={(e) => setObject(e.target.value)}
+                  inputProps={{
+                    'data-testid': 'objectInput'
+                  }}
+                ></TextField>
+              </FormControl>
+            </Grid>
+           
             <Grid item>
               <FormControl className={classes.eltSpacing}>
                 <Select className={classes.selectStyle}
                   variant="outlined"
+                  data-testid= 'sentenceSelect'
                   type="text"
                   fullWidth
                   id="sentence-type"
                   value={sentenceType}
-                  onChange={(e) => setSentenceType(e.target.value)}
+                  onChange={(e) => setSentenceType(e.target.value)}                
                 >
                    <MenuItem   
                       id=""                  
@@ -248,12 +278,14 @@ function SentenceForm() {
             <Grid item>
               <FormControl className={classes.eltSpacing}>
                 <Select className={classes.selectStyle}
+                  data-testid= 'tenseSelect'
                   variant="outlined"
                   type="text"
                   fullWidth                
                   id="tense"
                   value={tense}
                   onChange={(e) => setTense(e.target.value)}
+                 
                 >
                   {tenses.map((tenseType, index) => (
                     <MenuItem
@@ -292,7 +324,7 @@ function SentenceForm() {
            
             <Grid item>
               <FormControl>
-                <Button className={classes.buttonStyle} type="submit" color="primary" onClick={handleSubmit} data-testid="submit">
+                <Button className={classes.buttonStyle} type="submit" color="primary" onClick={handleSubmit} data-testid="submit" value="Submit">
                   Submit
                 </Button>
               </FormControl>
