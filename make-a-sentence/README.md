@@ -9,6 +9,7 @@ UI Layout: The UI is built to have the following input elements:
     4. Verb: - Noun : Required 
     5. Tense: Present, Past or Future tense - Default is "Present"
     6. Added optional inputs for params with singular or plural subject and Object selection
+    7. UI created to work well on both browsers (Validated on Chrome and Safari) and mobile devices (Android and Iphone)
 
 API: https://lt-nlgservice.herokuapp.com/rest/english/realise?[PARAMS]  where PARAMS include the inputs from the form.
   
@@ -32,10 +33,10 @@ Implementatation Details:
 3. Material UI: Used material ui to provide better user experience.
 4. Used axios as it provides a secure way for making http request to the api and is lightweight and easy to customize  
 5. Used Jest, axiosMock and react testing library for unit testing.
+6. Manual testing on browser as well as on mobile to align with the requirements
 
 Error Handling Scenario: Error Handling Scenario![image](https://user-images.githubusercontent.com/60489850/114287340-efec4c80-9a1a-11eb-8aba-430ff3474336.png)
 Succesful Data Fetch![image](https://user-images.githubusercontent.com/60489850/114287263-8d934c00-9a1a-11eb-976b-950204211b80.png)
 Loading Data Scenario: Loading Data![image](https://user-images.githubusercontent.com/60489850/114287301-9edc5880-9a1a-11eb-8053-a7950bc9c69e.png)
 Unsuccessful Data Fetch scenario:Screen Shot 2021-04-10 at 4.38.09 PM![image](https://user-images.githubusercontent.com/60489850/114287384-4194d700-9a1b-11eb-811a-642f197c28ce.png)
-
-
+Application on Android Device: Screen Shot 2021-04-10 at 4.48.31 PM![image](https://user-images.githubusercontent.com/60489850/114287616-157a5580-9a1d-11eb-80cb-032e45fe9617.png)
