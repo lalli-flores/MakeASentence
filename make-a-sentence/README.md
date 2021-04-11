@@ -1,6 +1,6 @@
 # Description:
 
-Make-a-Sentence is a Web application built using ReactJS, axios, react hooks, material ui and allows the users learning English to form proper sentences.
+Make-a-Sentence is a Web application built using ReactJS, axios, react hooks, material ui. The main idea of this UI is to allow the users learning English to form proper sentences.
 
 # UI Layout: 
 ## The UI is built to have the following input elements:
@@ -51,4 +51,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3. Implemented more ui elements for the remaining optional parameters.
 4. Created more web components for each type of parameter for a better maintainability
 5. Added more test scenarios
+
 
