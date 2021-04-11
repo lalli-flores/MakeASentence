@@ -1,8 +1,8 @@
-Description:
+#Description:
 
 Make-a-Sentence is a Web application built using ReactJS, axios, react hooks, material ui and allows the users learning English to form proper sentences.
 
-UI Layout: The UI is built to have the following input elements:
+#UI Layout: The UI is built to have the following input elements:
     1. Sentence Type: yesno, whatobj, whosubj : Indicates what type of a sentence is it, default is declarative statement
     2. Subject - Noun : Required 
     3. Object - Noun : Required 
@@ -13,7 +13,7 @@ UI Layout: The UI is built to have the following input elements:
 
 API: https://lt-nlgservice.herokuapp.com/rest/english/realise?[PARAMS]  where PARAMS include the inputs from the form.
   
-Running the project:
+#Running the project:
 
 Do a fresh ### `npm install` 
 then run ### `npm start`
@@ -21,7 +21,7 @@ Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-Implementatation Details:
+#Implementatation Details:
 
 1. Form Validation: Form validation is in place to ensure mandatory fields are filled in and only alphabets are allowed   
    for subject,verb and object fields before actually making an api call. This avoid unnecessary api calls unless valid param info is available
@@ -34,6 +34,8 @@ Implementatation Details:
 4. Used axios as it provides a secure way for making http request to the api and is lightweight and easy to customize  
 5. Used Jest, axiosMock and react testing library for unit testing.
 6. Manual testing on browser as well as on mobile to align with the requirements
+
+#Web Application Working Snapshots:
 
 Error Handling Scenario: Error Handling Scenario![image](https://user-images.githubusercontent.com/60489850/114287340-efec4c80-9a1a-11eb-8aba-430ff3474336.png)
 Succesful Data Fetch![image](https://user-images.githubusercontent.com/60489850/114287263-8d934c00-9a1a-11eb-976b-950204211b80.png)
