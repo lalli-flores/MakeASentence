@@ -42,4 +42,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ##### Succesful Data Fetch![image](https://user-images.githubusercontent.com/60489850/114287263-8d934c00-9a1a-11eb-976b-950204211b80.png)
 ##### Loading Data Scenario: ![image](https://user-images.githubusercontent.com/60489850/114287301-9edc5880-9a1a-11eb-8053-a7950bc9c69e.png)
 ##### Unsuccessful Data Fetch scenario:![image](https://user-images.githubusercontent.com/60489850/114287384-4194d700-9a1b-11eb-811a-642f197c28ce.png)
-##### Application on Mobile Device: ![image](https://user-images.githubusercontent.com/60489850/114287616-157a5580-9a1d-11eb-80cb-032e45fe9617.png)
+##### Application on Mobile Device: 
+![image](https://user-images.githubusercontent.com/60489850/114287616-157a5580-9a1d-11eb-80cb-032e45fe9617.png)
