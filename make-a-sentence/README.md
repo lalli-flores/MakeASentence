@@ -16,9 +16,7 @@ API: https://lt-nlgservice.herokuapp.com/rest/english/realise?[PARAMS]  where PA
   
 ## Running the project:
 
-Do a fresh ### `npm install` 
-then run ### `npm start`
-Runs the app in the development mode.
+Do a fresh ### `npm install` then run ### `npm start`runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
