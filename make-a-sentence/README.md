@@ -45,7 +45,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Possible future enhancements:
 1. Beautify web UI with more decorators.
-2. Seperate api call and use usecontext and useReducer hooks.
+2. Separate api call and make use of usecontext and useReducer hooks.
 3. Implement more ui elements for the remaining optional parameters.
 4. Create separate web components for each type of parameter for a better maintainability.
 5. Add more test scenarios
