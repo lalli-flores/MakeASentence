@@ -1,9 +1,9 @@
 # Description:
 
-Make-a-Sentence is a Web application built using ReactJS, axios, react hooks, material ui. The main idea of this UI is to allow the users learning English to form proper sentences.
+Make-a-Sentence is a Web application built using ReactJS, axios, react hooks, material UI. The main idea of this UI is to allow the users learning English to form proper sentences.
 
 # UI Layout: 
-## The UI is built to have the following input elements:
+## The UI is built to provide the following input elements:
     1. Sentence Type: yesno, whatobj, whosubj : Indicates what type of a sentence is it, default is declarative statement
     2. Subject - Noun : Required 
     3. Object - Noun : Required 
@@ -16,11 +16,11 @@ API: https://lt-nlgservice.herokuapp.com/rest/english/realise?[PARAMS]  where PA
   
 ## Running the project:
 
-Do a fresh ### `npm install` then run ### `npm start`runs the app in the development mode.
+Do a fresh ### `npm install` then ### `npm start`runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-## Implementatation Details:
+## Implementation Details:
 
 1. Form Validation: Form validation is in place to ensure mandatory fields are filled in and only alphabets are allowed   
    for subject,verb and object fields before actually making an api call. This avoid unnecessary api calls unless valid param info is available
@@ -43,8 +43,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ##### Application on Mobile Device: 
 ![image](https://user-images.githubusercontent.com/60489850/114287616-157a5580-9a1d-11eb-80cb-032e45fe9617.png)
 
-# If this exercise was not time contrained, possible future enhancements that are possible are:
-1. Beautify web ui with more decorators.
+# Possible future enhancements:
+1. Beautify web UI with more decorators.
 2. Seperate api call and use usecontext and useReducer hooks.
 3. Implement more ui elements for the remaining optional parameters.
 4. Create separate web components for each type of parameter for a better maintainability.
